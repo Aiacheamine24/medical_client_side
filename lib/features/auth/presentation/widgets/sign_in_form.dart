@@ -122,16 +122,14 @@ class SignInForm extends StatelessWidget {
               ],
             ),
             gapH20,
-            Center(
-              child: ElevatedButton(
-                onPressed: () => login(),
-                child: Text(
-                  "Sign In",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(fontWeight: FontWeight.bold),
-                ),
+            ElevatedButton(
+              onPressed: () => login(),
+              child: Text(
+                "Sign In",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold),
               ),
             ),
             // Sign up link

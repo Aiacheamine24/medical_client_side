@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:medical_client_side/core/constants/app_sizes.dart';
-import 'package:medical_client_side/features/auth/presentation/widgets/sign_in_form.dart';
+import 'package:medical_client_side/features/auth/presentation/widgets/sign_up_form.dart';
 
-class RightPartContentSignIn extends StatelessWidget {
-  const RightPartContentSignIn({super.key});
+class RightPartContentSignUp extends StatelessWidget {
+  const RightPartContentSignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Width
     final width = MediaQuery.of(context).size.width;
 
     return Flexible(
@@ -44,7 +45,7 @@ class RightPartContentSignIn extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "Welcome Back, Please login to your account",
+                      "Welcome to our platform",
                       style: Theme.of(context)
                           .textTheme
                           .titleLarge!
@@ -52,8 +53,8 @@ class RightPartContentSignIn extends StatelessWidget {
                       textAlign: TextAlign.center, // Center the text
                     ),
                     gapH20,
-                    // Sign-in form
-                    const SignInForm(),
+                    // Sign-up form
+                    const SignUpForm(),
                   ],
                 ),
               ),
