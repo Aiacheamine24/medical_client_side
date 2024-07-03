@@ -25,6 +25,7 @@ class CustomTextForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       focusNode: focusNode ?? FocusNode(),
       onFieldSubmitted: onFieldSubmitted ?? (_) {},
       validator: validator ?? (_) => null,

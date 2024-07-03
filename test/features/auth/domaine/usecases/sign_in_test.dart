@@ -16,7 +16,7 @@ void main() {
   // setUp
   setUp(() {
     repository = MockAuthRepository();
-    usecase = SignIn(authRepository: repository);
+    usecase = SignIn();
   });
 
   // Group of tests

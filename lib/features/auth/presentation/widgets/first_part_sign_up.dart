@@ -123,7 +123,7 @@ class FirstPartSignUp extends StatelessWidget {
         ),
         gapH20,
         ElevatedButton(
-          onPressed: () => nextWidget(1),
+          onPressed: () => nextWidget(index: 1),
           child: Text(
             "Next step",
             style: Theme.of(context)

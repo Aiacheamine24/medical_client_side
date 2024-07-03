@@ -36,7 +36,7 @@ class SecondPartSignUp extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(Sizes.p16),
               child: IconButton(
-                onPressed: () => nextWidget(0),
+                onPressed: () => nextWidget(index: 0),
                 icon: const Icon(Icons.arrow_back, color: Colors.white),
               ),
             ),
