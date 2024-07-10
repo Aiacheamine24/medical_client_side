@@ -58,6 +58,7 @@ class FirstPartSignUp extends StatelessWidget {
         ),
         gapH20,
         CustomTextForm(
+          obscureText: true,
           controller: passwordController,
           hintText: 'Enter your password *',
           label: "Password *",
@@ -91,6 +92,7 @@ class FirstPartSignUp extends StatelessWidget {
         ),
         gapH20,
         CustomTextForm(
+          obscureText: true,
           controller: confirmPasswordController,
           hintText: 'Confirm your password *',
           label: "Confirm Password *",

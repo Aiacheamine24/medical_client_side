@@ -17,8 +17,8 @@ class SignInForm extends StatelessWidget {
     final identifierFocusNode = FocusNode();
     final passwordFocusNode = FocusNode();
     // Parameters
-    final identifierController = TextEditingController(text: 'test@test.com');
-    final passwordController = TextEditingController(text: 'test@test');
+    final identifierController = TextEditingController();
+    final passwordController = TextEditingController();
     // Login function
     void login() {
       final identifier = identifierController.text;
@@ -84,6 +84,7 @@ class SignInForm extends StatelessWidget {
             ),
             gapH20,
             CustomTextForm(
+              obscureText: true,
               controller: passwordController,
               hintText: 'Password',
               label: "Password *",

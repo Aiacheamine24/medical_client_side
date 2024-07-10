@@ -35,7 +35,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } catch (e) {
       if (e is DioException) {
         return Left(ApiFailure(
-            message: e.response?.data['message'] ?? e.message,
+            message: e.response?.data['msg'] ?? e.message,
             statusCode: e.response?.statusCode as int));
       } else {
         return Left(ApiFailure(message: e.toString(), statusCode: 500));

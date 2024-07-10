@@ -25,12 +25,12 @@ class SignUpForm extends StatelessWidget {
     final birthDateFocusNode = FocusNode();
 
     // Parameters
-    final emailController = TextEditingController(text: "noadmin1@gmail.com");
-    final passwordController = TextEditingController(text: "aaaaaa");
-    final confirmPasswordController = TextEditingController(text: "aaaaaa");
-    final firstNameController = TextEditingController(text: "noadmin");
-    final lastNameController = TextEditingController(text: "1");
-    final birthDateController = TextEditingController(text: "2021-01-01");
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+    final confirmPasswordController = TextEditingController();
+    final firstNameController = TextEditingController();
+    final lastNameController = TextEditingController();
+    final birthDateController = TextEditingController();
     // Next widget function
     void nextWidget({int index = 0}) {
       if (index == 0) {

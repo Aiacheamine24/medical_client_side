@@ -15,10 +15,10 @@ class RightPartContentSignUp extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     return Container(
-      padding: EdgeInsets.all(width >= 600 ? Sizes.p64 : Sizes.p16),
+      padding: EdgeInsets.all(width >= 600 ? Sizes.p20 : Sizes.p12),
       width: double.infinity,
       height: double.infinity,
-      margin: EdgeInsets.all(width >= 900 ? Sizes.p64 : Sizes.p16),
+      margin: EdgeInsets.all(width >= 900 ? Sizes.p20 : Sizes.p12),
       decoration: BoxDecoration(
         color: Theme.of(context).dialogBackgroundColor.withOpacity(0.9),
         borderRadius: const BorderRadius.all(Radius.circular(Sizes.p24)),

@@ -11,6 +11,7 @@ class CustomTextForm extends StatelessWidget {
     required this.hintText,
     required this.label,
     required this.controller,
+    this.obscureText = false,
   });
 
   final FocusNode? focusNode;
@@ -21,10 +22,12 @@ class CustomTextForm extends StatelessWidget {
   final String hintText;
   final String label;
   final TextEditingController controller;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obscureText,
       controller: controller,
       focusNode: focusNode ?? FocusNode(),
       onFieldSubmitted: onFieldSubmitted ?? (_) {},
