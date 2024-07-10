@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:medical_client_side/core/common/widgets/custom_snak_bar.dart';
 import 'package:medical_client_side/core/common/widgets/custom_text_form.dart';
 import 'package:medical_client_side/core/constants/app_sizes.dart';
 import 'package:medical_client_side/core/theme/app_pallete.dart';
+import 'package:medical_client_side/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:medical_client_side/features/auth/presentation/screens/sign_up_screen.dart';
 
 class SignInForm extends StatelessWidget {
@@ -17,7 +20,20 @@ class SignInForm extends StatelessWidget {
     final identifierController = TextEditingController();
     final passwordController = TextEditingController();
     // Login function
-    void login() {}
+    void login() {
+      final identifier = identifierController.text;
+      final password = passwordController.text;
+      if (identifierController.text.isEmpty ||
+          passwordController.text.isEmpty) {
+        return customSnackBar(context,
+            message: "Please enter obligatoire fields", type: 'info');
+      }
+      // Call login function
+      context
+          .read<AuthBloc>()
+          .add(LoginEvent(identifier: identifier, password: password));
+    }
+
     // width
     final width = MediaQuery.of(context).size.width;
     return Form(
@@ -25,6 +41,17 @@ class SignInForm extends StatelessWidget {
         margin: EdgeInsets.only(right: width >= 900 ? Sizes.p20 : 0),
         child: Column(
           children: [
+            BlocListener<AuthBloc, AuthState>(
+              listener: (context, state) {
+                if (state is AuthFailure) {
+                  customSnackBar(context,
+                      message: state.message, type: 'error');
+                } else if (state is AuthSuccess) {
+                  context.go('/home');
+                }
+              },
+              child: Container(),
+            ),
             CustomTextForm(
               controller: identifierController,
               hintText: 'Email or Phone number or Personal code',
@@ -57,6 +84,7 @@ class SignInForm extends StatelessWidget {
             ),
             gapH20,
             CustomTextForm(
+              obscureText: true,
               controller: passwordController,
               hintText: 'Password',
               label: "Password *",
@@ -122,16 +150,14 @@ class SignInForm extends StatelessWidget {
               ],
             ),
             gapH20,
-            Center(
-              child: ElevatedButton(
-                onPressed: () => login(),
-                child: Text(
-                  "Sign In",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(fontWeight: FontWeight.bold),
-                ),
+            ElevatedButton(
+              onPressed: () => login(),
+              child: Text(
+                "Sign In",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold),
               ),
             ),
             // Sign up link

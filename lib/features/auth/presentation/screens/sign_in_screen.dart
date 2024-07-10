@@ -10,18 +10,8 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
-      children: [
-        Flexible(
-            flex: 1,
-            child: Image.asset(
-              'assets/images/auth_background.png',
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
-            )),
-        const RightPartContentSignIn()
-      ],
-    ));
+      backgroundColor: Theme.of(context).primaryColor,
+      body: const RightPartContentSignIn(),
+    );
   }
 }

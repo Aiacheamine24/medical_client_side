@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medical_client_side/features/auth/presentation/widgets/right_content_sign_up.dart';
 
 class SignUpScreen extends StatelessWidget {
   /// Default name for the route
@@ -7,10 +8,8 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Sign Up Screen'),
-      ),
-    );
+    return Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        body: const RightPartContentSignUp());
   }
 }
