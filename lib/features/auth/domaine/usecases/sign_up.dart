@@ -18,7 +18,6 @@ class SignUp implements UseCaseWithParams<LoginUserEntity, SignUpParams> {
         birthDate: params.birthDate,
         email: params.email,
         password: params.password,
-        confirmPassword: params.confirmPassword,
       );
 }
 
@@ -28,7 +27,6 @@ class SignUpParams extends Equatable {
   final DateTime birthDate;
   final String email;
   final String password;
-  final String confirmPassword;
 
   const SignUpParams({
     required this.firstName,
@@ -36,10 +34,8 @@ class SignUpParams extends Equatable {
     required this.birthDate,
     required this.email,
     required this.password,
-    required this.confirmPassword,
   });
 
   @override
-  List<Object?> get props =>
-      [firstName, lastName, birthDate, email, password, confirmPassword];
+  List<Object?> get props => [firstName, lastName, birthDate, email, password];
 }

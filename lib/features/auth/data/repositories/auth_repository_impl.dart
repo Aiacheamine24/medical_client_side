@@ -44,14 +44,38 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  ResultFutureWithCustomClassResult<LoginUserEntity> signUp(
-      {required String firstName,
-      required String lastName,
-      required DateTime birthDate,
-      required String email,
-      required String password,
-      required String confirmPassword}) {
-    // TODO: implement signUp
-    throw UnimplementedError();
+  Future<Either<Failure, LoginUserEntity>> signUp({
+    required String firstName,
+    required String lastName,
+    required DateTime birthDate,
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final res = await authRemoteDataSource.register(
+        identifier: email,
+        password: password,
+        birthDate: birthDate,
+        firstName: firstName,
+        lastName: lastName,
+      );
+
+      LoginUserEntity loginUserEntity = LoginUserEntity(
+        success: res.success,
+        message: res.message,
+        id: res.id,
+        missingFields: res.missingFields,
+      );
+
+      return Right(loginUserEntity);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ApiFailure(
+            message: e.response?.data['msg'] ?? e.message,
+            statusCode: e.response?.statusCode as int));
+      } else {
+        return Left(ApiFailure(message: e.toString(), statusCode: 500));
+      }
+    }
   }
 }

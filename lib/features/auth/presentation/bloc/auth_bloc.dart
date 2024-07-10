@@ -22,30 +22,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
 
     on<RegisterEvent>((event, emit) async {
-      print('RegisterEvent');
-      try {
-        print(event.email);
-        print(event.password);
-        print(event.birthDate);
-        print(event.firstName);
-        print(event.lastName);
-        print(event.confirmPassword);
-
-        final result = await signUp(SignUpParams(
-          email: event.email,
-          password: event.password,
-          birthDate: event.birthDate,
-          firstName: event.firstName,
-          lastName: event.lastName,
-          confirmPassword: event.confirmPassword,
-        ));
-        result.fold(
-          (failure) => emit(AuthFailure(message: failure.message)),
-          (success) => emit(const AuthSuccess()),
-        );
-      } catch (e) {
-        print(e);
-      }
+      final result = await signUp(SignUpParams(
+        email: event.email,
+        password: event.password,
+        birthDate: event.birthDate,
+        firstName: event.firstName,
+        lastName: event.lastName,
+      ));
+      result.fold(
+        (failure) => emit(AuthFailure(message: failure.message)),
+        (success) => emit(const AuthSuccess()),
+      );
     });
 
     on<FirstStepRegisterEvent>((event, emit) {

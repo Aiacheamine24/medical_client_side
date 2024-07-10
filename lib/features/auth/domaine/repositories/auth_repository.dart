@@ -10,7 +10,6 @@ abstract interface class AuthRepository {
     required DateTime birthDate,
     required String email,
     required String password,
-    required String confirmPassword,
   });
 
   ResultFutureWithCustomClassResult<LoginUserEntity> signIn({

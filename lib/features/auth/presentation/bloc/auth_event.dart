@@ -44,8 +44,8 @@ final class RegisterEvent extends AuthEvent {
         email,
         password,
         birthDate,
-        firstName ?? '',
-        lastName ?? '',
+        firstName,
+        lastName,
       ];
 
   get confirmPassword => null;

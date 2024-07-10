@@ -65,12 +65,21 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       required String password,
       required DateTime birthDate,
       required String? firstName,
-      required String? lastName}) {
-    // TODO: implement register
+      required String? lastName}) async {
     try {
-      throw UnimplementedError();
+      final res = await networking
+          .post(path: "${AppConfig.apiUrl}/auth/register", data: {
+        "email": identifier,
+        "password": password,
+        "birthDate": birthDate.toString().split(" ")[0],
+        "firstName": firstName,
+        "lastName": lastName,
+      });
+      // Transform the response from Response<dynamic> to Map<String, dynamic>
+      final Map<String, dynamic> data = res.data;
+      return LoginUserModel.fromMap(data);
     } catch (e) {
-      throw UnimplementedError();
+      rethrow;
     }
   }
 }
