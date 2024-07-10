@@ -33,7 +33,7 @@ class CustomDateForm extends StatelessWidget {
             colorScheme: ColorScheme.light(
               primary: Theme.of(context).dialogBackgroundColor,
               onPrimary: Theme.of(context).scaffoldBackgroundColor,
-              surface: Theme.of(context).scaffoldBackgroundColor,
+              surface: Theme.of(context).dialogBackgroundColor,
               onSurface: Theme.of(context).scaffoldBackgroundColor,
             ),
             dialogBackgroundColor: Theme.of(context).dialogBackgroundColor,
