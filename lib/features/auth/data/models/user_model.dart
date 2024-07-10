@@ -15,7 +15,6 @@ class LoginUserModel extends LoginUserEntity {
   });
   // From Map
   factory LoginUserModel.fromMap(DataMap map) {
-    print(map);
     return LoginUserModel(
       success: map['success'],
       message: map['msg'] ?? "",

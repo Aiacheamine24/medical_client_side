@@ -133,7 +133,7 @@ class SecondPartSignUp extends StatelessWidget {
         ElevatedButton(
           onPressed: () => signUp(),
           child: Text(
-            "Sign In",
+            "Sign Up",
             style: Theme.of(context)
                 .textTheme
                 .titleMedium!

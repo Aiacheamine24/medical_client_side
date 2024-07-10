@@ -46,14 +46,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       final Map<String, dynamic> data = res.data;
       return LoginUserModel.fromMap(data);
     } catch (e) {
-      print(e);
       rethrow;
     }
   }
 
   @override
   Future<void> logout() {
-    // TODO: implement logout
     try {
       throw UnimplementedError();
     } catch (e) {

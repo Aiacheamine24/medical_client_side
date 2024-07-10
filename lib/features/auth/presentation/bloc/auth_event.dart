@@ -28,15 +28,15 @@ final class RegisterEvent extends AuthEvent {
   final String email;
   final String password;
   final DateTime birthDate;
-  final String? firstName;
-  final String? lastName;
+  final String firstName;
+  final String lastName;
 
   const RegisterEvent({
     required this.email,
     required this.password,
     required this.birthDate,
-    this.firstName,
-    this.lastName,
+    required this.firstName,
+    required this.lastName,
   });
 
   @override

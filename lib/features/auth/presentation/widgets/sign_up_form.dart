@@ -25,12 +25,12 @@ class SignUpForm extends StatelessWidget {
     final birthDateFocusNode = FocusNode();
 
     // Parameters
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
-    final confirmPasswordController = TextEditingController();
-    final firstNameController = TextEditingController();
-    final lastNameController = TextEditingController();
-    final birthDateController = TextEditingController();
+    final emailController = TextEditingController(text: "noadmin1@gmail.com");
+    final passwordController = TextEditingController(text: "aaaaaa");
+    final confirmPasswordController = TextEditingController(text: "aaaaaa");
+    final firstNameController = TextEditingController(text: "noadmin");
+    final lastNameController = TextEditingController(text: "1");
+    final birthDateController = TextEditingController(text: "2021-01-01");
     // Next widget function
     void nextWidget({int index = 0}) {
       if (index == 0) {
@@ -50,14 +50,32 @@ class SignUpForm extends StatelessWidget {
       final lastName = lastNameController.text;
       final birthDate = birthDateController.text;
 
-      // context.read<AuthBloc>().add(RegisterEvent(
-      //     email: email,
-      //     password: password,
-      //     firstName: firstName,
-      //     lastName: lastName,
-      //     birthDate: birthDate.isNotEmpty
-      //         ? DateTime.parse(birthDate)
-      //         : DateTime(1, 1, 1)));
+      if (password != confirmPassword) {
+        customSnackBar(context,
+            message: "Passwords do not match", type: 'error');
+      }
+      if (password.length < 6) {
+        customSnackBar(context,
+            message: "Password must be at least 6 characters", type: 'error');
+      }
+      if (email.isEmpty ||
+          password.isEmpty ||
+          confirmPassword.isEmpty ||
+          firstName.isEmpty ||
+          lastName.isEmpty ||
+          birthDate.isEmpty) {
+        customSnackBar(context,
+            message: "All fields are required", type: 'error');
+      }
+
+      context.read<AuthBloc>().add(RegisterEvent(
+          email: email,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
+          birthDate: birthDate.isNotEmpty
+              ? DateTime.parse(birthDate)
+              : DateTime(1, 1, 1)));
     }
 
     // Width
