@@ -5,6 +5,7 @@ import 'package:medical_client_side/core/common/widgets/custom_snak_bar.dart';
 import 'package:medical_client_side/core/constants/app_sizes.dart';
 import 'package:medical_client_side/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:medical_client_side/features/auth/presentation/widgets/sign_up_form.dart';
+import 'package:medical_client_side/features/home/screens/home_main_screen.dart';
 
 class RightPartContentSignUp extends StatelessWidget {
   const RightPartContentSignUp({super.key});
@@ -53,7 +54,7 @@ class RightPartContentSignUp extends StatelessWidget {
                             message: state.message, type: 'error');
                       }
                       if (state is AuthSuccess) {
-                        context.go('/home');
+                        context.go(HomeMainScreen.routeName);
                       }
                     },
                     child: Container(),
