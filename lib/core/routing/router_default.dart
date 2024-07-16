@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:medical_client_side/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:medical_client_side/features/auth/presentation/screens/sign_up_screen.dart';
-import 'package:medical_client_side/features/home/presentation/home_screen.dart';
+import 'package:medical_client_side/features/home/screens/home_main_screen.dart';
+import 'package:medical_client_side/features/home/screens/home_screen.dart';
 
 final goRouterIntance = GoRouter(
   initialLocation: SignInScreen.routeName,
@@ -24,5 +25,9 @@ final goRouterIntance = GoRouter(
         path: HomeScreen.routeName,
         pageBuilder: (context, state) =>
             const MaterialPage(child: HomeScreen())),
+    GoRoute(
+        path: HomeMainScreen.routeName,
+        pageBuilder: (context, state) =>
+            const MaterialPage(child: HomeMainScreen()))
   ],
 );

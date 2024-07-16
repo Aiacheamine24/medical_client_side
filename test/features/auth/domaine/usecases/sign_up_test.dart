@@ -31,7 +31,6 @@ void main() {
         birthDate: DateTime(2021, 1, 1), // DateTime(2021, 1, 1)
         email: 'email',
         password: 'password',
-        confirmPassword: 'confirmPassword',
       );
       when(() => repository.signUp(
             firstName: any(named: 'firstName'),
@@ -39,7 +38,6 @@ void main() {
             birthDate: any(named: 'birthDate'),
             email: any(named: 'email'),
             password: any(named: 'password'),
-            confirmPassword: any(named: 'confirmPassword'),
           )).thenAnswer((_) async => const Right(LoginUserEntity(
             id: 'id',
             message: 'message',
@@ -63,7 +61,6 @@ void main() {
             birthDate: tparams.birthDate,
             email: tparams.email,
             password: tparams.password,
-            confirmPassword: tparams.confirmPassword,
           )).called(1);
     });
 
@@ -76,7 +73,6 @@ void main() {
         birthDate: DateTime(2021, 1, 1), // DateTime(2021, 1, 1)
         email: 'email',
         password: 'password',
-        confirmPassword: 'confirmPassword',
       );
       when(() => repository.signUp(
                 firstName: any(named: 'firstName'),
@@ -84,7 +80,6 @@ void main() {
                 birthDate: any(named: 'birthDate'),
                 email: any(named: 'email'),
                 password: any(named: 'password'),
-                confirmPassword: any(named: 'confirmPassword'),
               ))
           .thenAnswer(
               (_) async => const Left(UnExpectedFailure(message: 'message')));
@@ -98,7 +93,6 @@ void main() {
             birthDate: tparams.birthDate,
             email: tparams.email,
             password: tparams.password,
-            confirmPassword: tparams.confirmPassword,
           )).called(1);
     });
   });

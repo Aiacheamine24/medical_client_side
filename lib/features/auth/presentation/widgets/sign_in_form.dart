@@ -7,6 +7,7 @@ import 'package:medical_client_side/core/constants/app_sizes.dart';
 import 'package:medical_client_side/core/theme/app_pallete.dart';
 import 'package:medical_client_side/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:medical_client_side/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:medical_client_side/features/home/screens/home_main_screen.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({super.key});
@@ -47,7 +48,7 @@ class SignInForm extends StatelessWidget {
                   customSnackBar(context,
                       message: state.message, type: 'error');
                 } else if (state is AuthSuccess) {
-                  context.go('/home');
+                  context.go(HomeMainScreen.routeName);
                 }
               },
               child: Container(),

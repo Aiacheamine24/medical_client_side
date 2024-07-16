@@ -16,7 +16,7 @@ Future<void> initDependencies() async {
   // Register the connection checker
   getItInstance
     ..registerLazySingleton(() => Dio())
-    ..registerLazySingleton(() => NetworkingImpl())
+    ..registerLazySingleton(() => NetworkingImpl(dio: getItInstance()))
     ..registerLazySingleton(() => InternetConnection())
     ..registerLazySingleton(() => LocalService());
 

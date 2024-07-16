@@ -11,7 +11,8 @@ import 'package:medical_client_side/features/auth/domaine/repositories/auth_repo
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSourceImpl authRemoteDataSource =
-      AuthRemoteDataSourceImpl(networking: NetworkingImpl());
+      AuthRemoteDataSourceImpl(
+          networking: NetworkingImpl(dio: getItInstance<Dio>()));
 
   @override
   ResultFutureWithCustomClassResult<LoginUserEntity> signIn(

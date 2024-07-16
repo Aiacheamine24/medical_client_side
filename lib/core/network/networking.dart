@@ -54,7 +54,12 @@ abstract interface class Networking {
 }
 
 class NetworkingImpl implements Networking {
-  final Dio dio = Dio();
+  final Dio dio;
+
+  /// The constructor of the class.
+  ///
+  /// The [dio] parameter is the Dio instance.
+  NetworkingImpl({required this.dio});
 
   @override
   Future<Response> get({
